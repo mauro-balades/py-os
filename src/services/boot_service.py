@@ -1,4 +1,6 @@
+from src.services.setup_service import SetupService
 from .system_service import SystemService
+from .console_service import ConsoleService
 from ..views.boot_view import BootView
 import time
 
@@ -6,6 +8,7 @@ class BootService:
 
   default_dir = "os"
   system = SystemService()
+  console = ConsoleService()
 
   """
   boot the operating system
@@ -27,6 +30,15 @@ class BootService:
       time.sleep(0.09)
 
     if not self.system.exists(self.dir):
-      pass
+      self.setup()
 
     return True
+
+  def setup(self):
+
+    try:
+      setup = SetupService(self.dir)
+    except Exception as e:
+      self.console.error(str(e))
+      self.console.error('failed to setup the operating system.')
+      self.console.error('checkout https://github.com/maubg-debug/py-os')

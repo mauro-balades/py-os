@@ -1,13 +1,15 @@
+from src.services.console_service import ConsoleService
 from ..services.view_service import alignTextCenter
 from ..services.system_service import SystemService
 
 class BootView:
 
   system = SystemService()
+  console = ConsoleService()
   text = 'B O O T I N G\n'
 
   """
-  Simple TUI view while booting  
+  Simple TUI view while booting
   """
   def __init__(self):
     self.count = 0
@@ -22,5 +24,9 @@ class BootView:
 
   def show(self):
     self.system.clear()
-    alignTextCenter(self.text)    
-    alignTextCenter(str(self.count) + '%')    
+
+    for l in range(int(self.system.size()['rows'] / 5)):
+        self.console.print("\n")
+
+    alignTextCenter(self.text)
+    alignTextCenter(str(self.count) + '%')

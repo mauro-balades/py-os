@@ -1,0 +1,12 @@
+
+***************************************************
+*        ~ WELCOME TO PY-OS ~                     *
+***************************************************
+*  This is a dummy operating system enviroment    *
+*  The operating system is packed with some pro-  *
+*  grams, package manager, file system and more!  *
+*  The main purpose of the operating system is    *
+*  so that people can see what you can do with    *
+*  ASCII characters. Please create an account     *
+*  and have fun tring its features...             *
+***************************************************
