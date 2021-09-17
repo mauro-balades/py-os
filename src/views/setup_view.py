@@ -39,6 +39,8 @@ class SetupView:
         loadingBar()
 
     sleep(1)
+    username = ""
+    password = ""
 
     for i in range(2):
         self.system.clear()
@@ -57,14 +59,15 @@ class SetupView:
         print("\n")
         if i == 0:
             name = sys.stdout.write(getInputText(alignTextCenter('T Y P E  Y O U R  N A M E  :', ret=True)))
-            t = input()
+            username = input()
         else:
             password = sys.stdout.write(getInputText(alignTextCenter('T Y P E  Y O U R  P A S W O R D  :', ret=True)))
             sys.stdout.flush()
-            t = getpass('')
+            password = getpass('')
 
+    self.system.clear()
     print("\n")
     alignTextCenter('S E T U P')
     line()
-    os.system('sh ' + self.sh)
-    sleep(1)
+    os.system('sh ' + self.sh + f" \"os\" \"{username}\" \"{password}\"")
+    sleep(5)

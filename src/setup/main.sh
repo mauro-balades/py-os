@@ -1,7 +1,7 @@
 
-OS_FOLDER = "$1"
-OS_USERNAME = "$2"
-OS_PASSWORD = "$3"
+OS_FOLDER=$1
+OS_USERNAME=$2
+OS_PASSWORD=$3
 
 echo "creating dir $OS_FOLDER"
 mkdir "$OS_FOLDER"
