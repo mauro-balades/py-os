@@ -44,3 +44,16 @@ def line():
   console.print(
     ''.join(LINE_CHARACTER for _ in range(size['columns']))
   )
+
+
+"""
+returns a special case for the input
+ - text must finish with ':'
+
+:param text: text of the input
+:type text: str
+"""
+def getInputText(text: str):
+
+  t2 = text.split(":")
+  return t2[0] + ': '

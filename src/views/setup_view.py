@@ -1,6 +1,6 @@
 import sys
 from src.services.console_service import ConsoleService
-from ..services.view_service import alignTextCenter, loadingBar, line
+from ..services.view_service import alignTextCenter, loadingBar, line, getInputText
 from ..services.system_service import SystemService
 from inspect import getsourcefile
 from getpass import getpass
@@ -22,6 +22,7 @@ class SetupView:
 
     self.dir = os.path.dirname(os.path.abspath(getsourcefile(lambda:0)))
     self.assets = str(self.dir) + '/../assets'
+    self.sh = str(self.dir) + '/../setup/main.sh'
 
     self.show()
 
@@ -55,9 +56,15 @@ class SetupView:
 
         print("\n")
         if i == 0:
-            name = sys.stdout.write(alignTextCenter('T Y P E  Y O U R  N A M E  :', ret=True))
+            name = sys.stdout.write(getInputText(alignTextCenter('T Y P E  Y O U R  N A M E  :', ret=True)))
             t = input()
         else:
-            password = sys.stdout.write(alignTextCenter('T Y P E  Y O U R  P A S W O R D  :', ret=True))
+            password = sys.stdout.write(getInputText(alignTextCenter('T Y P E  Y O U R  P A S W O R D  :', ret=True)))
             sys.stdout.flush()
             t = getpass('')
+
+    print("\n")
+    alignTextCenter('S E T U P')
+    line()
+    os.system('sh ' + self.sh)
+    sleep(1)
