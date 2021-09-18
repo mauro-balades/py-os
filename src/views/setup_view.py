@@ -69,5 +69,5 @@ class SetupView:
     print("\n")
     alignTextCenter('S E T U P')
     line()
-    os.system('sh ' + self.sh + f" \"os\" \"{username}\" \"{password}\"")
+    os.system('sh ' + self.sh + f" \"os\" \"{username}\" \"{password}\" \"{self.dir + '/../'}\"")
     sleep(5)
